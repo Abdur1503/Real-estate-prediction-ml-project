@@ -54,12 +54,7 @@ balcony = st.number_input(
 )
 
 
-def predict_home_price():
 
-	response=jsonify({
-		'estimated_price':util.get_estimated_price(location, size, sqft, bath, balcony, area)
-	})
-	print( response)
 
 def get_estimated_price(location, size, sqft, bath, balcony, area):
     
