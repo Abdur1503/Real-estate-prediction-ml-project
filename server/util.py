@@ -37,20 +37,21 @@ def get_area_names():
     load_saved_artifacts()
     return __area
 
-
+import os
+__location__ = os.path.dirname(os.path.abspath(__file__))
 def load_saved_artifacts():
     print("loading saved artifacts...start")
     global __data_columns
     global __locations
     global __area
 
-    with open("./artifacts/columns.json", 'r') as f:
+    with open("./server/artifacts/columns.json", 'r') as f:
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[4:245]
         __area = __data_columns[245:]
 
     global __model
-    with open("./artifacts/banglore_home_prices_model.pickle", 'rb') as f:
+    with open("./server/artifacts/banglore_home_prices_model.pickle", 'rb') as f:
         __model = pickle.load(f)
     print('loading the artifacts done')
 
